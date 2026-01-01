@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-project_root = Path(__file__).parent.parent
+project_root = Path(__file__).parent.parent.parent.parent
 
 
 logger = configure_logging(__name__)
@@ -14,6 +14,10 @@ logger = configure_logging(__name__)
 class Settings(BaseSettings):
     OPENAI_API_KEY: str
     OPENAI_MODEL: str
+
+    @property
+    def project_root(self) -> Path:
+        return project_root
 
     class Config:
         env_file = project_root / ".env"
