@@ -1,6 +1,9 @@
 from pydantic_settings import BaseSettings
 from pathlib import Path
 from statement_analyser.core.logging_config import configure_logging
+from dotenv import load_dotenv
+
+load_dotenv()
 
 project_root = Path(__file__).parent.parent
 
